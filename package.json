@@ -1,0 +1,13 @@
+{
+  "name": "ftmercati-site",
+  "version": "2.0.0",
+  "description": "FTMercati — Dashboard quotazioni materie prime e metalli",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js 3000"
+  },
+  "author": "FT Support S.r.l.",
+  "license": "UNLICENSED",
+  "private": true
+}

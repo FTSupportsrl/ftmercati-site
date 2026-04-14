@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTMercati — Quotazioni LME, Prezzi Materie Prime e Metalli in Tempo Reale</title>
+<meta name="description" content="Quotazioni LME in tempo reale: rame, alluminio, zinco, nichel, piombo, stagno. Prezzi preziosi (oro, argento), forex BCE, petrolio, energia e rottami. Dashboard professionale, alert e report per trader e aziende.">
+<meta name="keywords" content="quotazioni LME, prezzi materie prime, prezzo rame, prezzo alluminio, quotazioni metalli tempo reale, prezzo oro oggi, prezzo argento, EUR/USD BCE, fixing metalli, LME metal prices, commodity market data">
+<meta name="author" content="FTMercati - FT Support S.r.l.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://www.ftmercati.com/">
+<meta name="theme-color" content="#035177">
+<link rel="alternate" hreflang="it" href="https://www.ftmercati.com/it/">
+<link rel="alternate" hreflang="en" href="https://www.ftmercati.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FTMercati">
+<meta property="og:title" content="FTMercati — Quotazioni LME e Prezzi Materie Prime in Tempo Reale">
+<meta property="og:description" content="Dashboard professionale per quotazioni LME, metalli preziosi, forex, energia e rottami. Alert personalizzati, grafici avanzati e report di mercato.">
+<meta property="og:url" content="https://www.ftmercati.com/">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://www.ftmercati.com/#org","name":"FTMercati","legalName":"FT Support S.r.l.","url":"https://www.ftmercati.com","logo":"https://www.ftmercati.com/assets/logo.png","description":"Piattaforma professionale per quotazioni LME, metalli preziosi, forex, energia e rottami in tempo reale.","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+390289452666","email":"info@ftmercati.com","availableLanguage":["Italian","English","French","Spanish","German"]},"sameAs":["https://www.linkedin.com/company/ftmercati"],"knowsAbout":["London Metal Exchange","Commodity Trading","Precious Metals","Foreign Exchange","Energy Markets"]},
+{"@type":"WebSite","@id":"https://www.ftmercati.com/#site","name":"FTMercati","url":"https://www.ftmercati.com","publisher":{"@id":"https://www.ftmercati.com/#org"},"potentialAction":{"@type":"SearchAction","target":"https://www.ftmercati.com/search?q={q}","query-input":"required name=q"}},
+{"@type":"WebApplication","name":"FTMercati Dashboard","applicationCategory":"FinanceApplication","operatingSystem":"Web, iOS 16+, watchOS 9+","offers":[{"@type":"Offer","name":"Demo","price":"0","priceCurrency":"EUR"},{"@type":"Offer","name":"Professional","price":"49","priceCurrency":"EUR"},{"@type":"Offer","name":"Enterprise","description":"Custom pricing"}],"featureList":["Quotazioni LME real-time (Select, Official, Unofficial)","Preziosi Spot e Fixing","Forex BCE/BFIX/LME","Energia PUN/EEX/Brent/WTI","Rottami ferrosi e non ferrosi","Alert personalizzati","Report e news","Database 1240+ leghe","App iOS con Live Activities","Apple Watch complications"]},
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Posso provare FTMercati gratuitamente?","acceptedAnswer":{"@type":"Answer","text":"Si, il piano Demo e gratuito per sempre con dati LME ritardati di 15 minuti. I piani Professional ed Enterprise offrono 14 giorni di prova gratuita."}},{"@type":"Question","name":"Da dove provengono i dati?","acceptedAnswer":{"@type":"Answer","text":"I dati sono forniti da LME, BCE, ICE, SHFE e altre fonti ufficiali."}},{"@type":"Question","name":"Come funzionano gli alert?","acceptedAnswer":{"@type":"Answer","text":"Configura alert su prezzo target per qualsiasi strumento. Ricevi notifiche push istantanee su tutti i dispositivi."}}]},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.ftmercati.com/"},{"@type":"ListItem","position":2,"name":"Quotazioni","item":"https://www.ftmercati.com/quotazioni"},{"@type":"ListItem","position":3,"name":"Dashboard","item":"https://www.ftmercati.com/dashboard"}]}
+]}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<noscript>
+<div style="padding:60px 24px;max-width:800px;margin:0 auto;font-family:Inter,sans-serif;line-height:1.8;">
+  <h1>FTMercati — Quotazioni LME e Prezzi Materie Prime in Tempo Reale</h1>
+  <p>FTMercati e la piattaforma professionale per il monitoraggio dei mercati delle materie prime.</p>
+  <h2>Quotazioni LME (London Metal Exchange)</h2>
+  <p>Prezzi ufficiali per rame (CU), alluminio (AL), zinco (ZN), nichel (NI), piombo (PB) e stagno (SN). Scadenze Cash, 3 Mesi, 15 Mesi, 27 Mesi. Fonti: Select (EL), Official (RK), Unofficial (RU).</p>
+  <h2>Metalli Preziosi</h2><p>Quotazioni spot e fixing per oro (XAU), argento (XAG), platino (XPT) e palladio (XPD).</p>
+  <h2>Forex</h2><p>Tassi di cambio EUR/USD, EUR/GBP, EUR/JPY. Fixing BCE, BFIX e LME.</p>
+  <h2>Energia</h2><p>Brent, WTI, gasolio ICE. Elettricita PUN, EEX, EPEX, Gas TTF.</p>
+  <h2>Rottami</h2><p>Ferrosi (E1, E3, E8, Shredded) e non ferrosi (rame, alluminio, zinco).</p>
+  <p><a href="https://www.ftmercati.com">Visita FTMercati</a></p>
+</div>
+</noscript>
+
+<!-- ═══════════════════════════════════════════════
+     PUBLIC SITE TOPBAR & NAV
+     ═══════════════════════════════════════════════ -->
+<div class="topbar" id="topbar">
+  <div></div>
+  <div class="topbar-right">
+    <div class="lang-selector" id="langSelector">
+      <a href="#" class="active">IT</a><span>·</span>
+      <a href="#">EN</a><span>·</span>
+      <a href="#">FR</a><span>·</span>
+      <a href="#">ES</a><span>·</span>
+      <a href="#">DE</a>
+    </div>
+    <button class="btn btn-primary" id="topbarAccessBtn" onclick="showLogin('login')">AREA RISERVATA</button>
+  </div>
+</div>
+
+<nav class="nav-public" id="navPublic">
+  <div class="nav-inner-public">
+    <a class="nav-brand-public" href="#" onclick="goPublicPage('home'); return false;">
+      <img class="logo-svg" src="img/logo.png" alt="FTMercati">
+      <span class="nav-title-public">FT<span>Mercati</span></span>
+    </a>
+    <div class="nav-links-public" id="navLinks">
+      <a class="nav-link-public active" data-page="home" onclick="goPublicPage('home')">QUOTAZIONI</a>
+      <a class="nav-link-public" data-page="rottami" onclick="goPublicPage('rottami')">ROTTAMI</a>
+      <a class="nav-link-public" data-page="leghe" onclick="goPublicPage('leghe')">LEGHE</a>
+      <a class="nav-link-public" data-page="piattaforme" onclick="goPublicPage('piattaforme')">PIATTAFORME</a>
+      <a class="nav-link-public" data-page="news" onclick="goPublicPage('news')">NEWS</a>
+
+      <a class="nav-link-public" data-page="contatti" onclick="goPublicPage('contatti')">CONTATTI</a>
+    </div>
+    <div class="nav-actions-public">
+      <button class="theme-toggle" id="themeIcon" onclick="toggleTheme()">☀️</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     AREA RISERVATA HEADER
+     ═══════════════════════════════════════════════ -->
+<div class="ar-header" id="arHeader">
+  <div class="ar-header-left">
+    <a class="ar-logo" href="#" onclick="goARPage('account'); return false;">
+      <img class="logo-svg" src="img/logo.png" alt="FTMercati">
+      <span>FTMercati</span>
+    </a>
+  </div>
+  <div class="ar-header-right">
+    <div class="ar-user-badge">User: <strong>Demo</strong></div>
+    <button onclick="openSearch()" style="background:none;border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:12px;font-family:var(--font);transition:all var(--transition);" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)'">
+      <span style="font-size:14px;">&#x1F50D;</span> Cerca <kbd style="margin-left:4px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:3px;padding:0 4px;font-size:10px;font-family:var(--mono);">Ctrl+K</kbd>
+    </button>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+    <a class="nav-link-public" href="#" onclick="goARPage('account'); return false;">Account</a>
+    <button class="ar-logout" onclick="handleLogout()">Logout</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     AREA RISERVATA SIDEBAR & CONTENT
+     ═══════════════════════════════════════════════ -->
+<div class="ar-container" id="arContainer">
+
+<!-- AREA RISERVATA SIDEBAR -->
+<div class="ar-sidebar" id="arSidebar">
+  <div class="ar-sidebar-title">Panoramica</div>
+  <button class="ar-nav-item active" data-page="account" onclick="goARPage('account')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 6L8 2L14 6V13C14 13.6 13.6 14 13 14H3C2.4 14 2 13.6 2 13V6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14V8H10V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Dashboard
+  </button>
+
+  <div class="ar-sidebar-title">Mercati</div>
+  <button class="ar-nav-item" data-page="lme" onclick="goARPage('lme')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M2 8H14M8 2C6 4.5 6 11.5 8 14M8 2C10 4.5 10 11.5 8 14" stroke="currentColor" stroke-width="1.2"/></svg>
+    LME Metalli
+  </button>
+  <button class="ar-nav-item" data-page="preziosi" onclick="goARPage('preziosi')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L2 6L5 14H11L14 6L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 6H14M5 14L8 2L11 14M5 6L8 14L11 6" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
+    Preziosi
+  </button>
+  <button class="ar-nav-item" data-page="forex" onclick="goARPage('forex')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4V12M12 4V12M4 6H7M4 8H6M12 6H9M12 8H10M4 10H7M12 10H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Forex
+  </button>
+  <button class="ar-nav-item" data-page="energia" onclick="goARPage('energia')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9 2L4 9H8L7 14L12 7H8L9 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    Energia
+  </button>
+  <button class="ar-nav-item" data-page="rottami" onclick="goARPage('rottami')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3L3 8H13L11 3H5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 8V13H13V8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 8V13" stroke="currentColor" stroke-width="1.5"/></svg>
+    Rottami
+  </button>
+
+  <div class="ar-sidebar-title">Strumenti</div>
+  <button class="ar-nav-item" data-page="alerts" onclick="goARPage('alerts')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6C4 3.8 5.8 2 8 2C10.2 2 12 3.8 12 6V9L13 11H3L4 9V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6.5 11V12C6.5 12.8 7.2 13.5 8 13.5C8.8 13.5 9.5 12.8 9.5 12V11" stroke="currentColor" stroke-width="1.5"/></svg>
+    Alert Prezzo
+  </button>
+  <button class="ar-nav-item" data-page="preferiti" onclick="goARPage('preferiti')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L9.8 5.6L14 6.2L11 9.1L11.6 13.2L8 11.4L4.4 13.2L5 9.1L2 6.2L6.2 5.6L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+    Preferiti
+  </button>
+  <button class="ar-nav-item" data-page="news" onclick="goARPage('news')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3H13V13H3V3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 6H11M5 8H11M5 10H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    News e Report
+  </button>
+
+  <div class="ar-sidebar-title">Account</div>
+  <button class="ar-nav-item" onclick="toggleARSubmenu(this)">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 14C3 11.2 5.2 9 8 9C10.8 9 13 11.2 13 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Profilo
+  </button>
+  <div class="ar-nav-submenu" style="display:none;">
+    <a class="ar-submenu-item" href="#" onclick="showToast('Modifica password — disponibile a breve', 'info'); return false;">Modifica Password</a>
+    <a class="ar-submenu-item" href="#" onclick="openDisplayNameEditor(); return false;">Nome visualizzato</a>
+    <a class="ar-submenu-item" href="#" onclick="showToast('Impostazioni — disponibile a breve', 'info'); return false;">Impostazioni</a>
+  </div>
+
+  <div class="sidebar-footer" style="margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--text-tertiary);">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;" id="sidebarStatus">
+      <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--positive);display:inline-block;"></span>
+      <span>Connesso</span>
+    </div>
+    <div>FTMercati Web v2.0</div>
+    <div style="margin-top:2px;">Dati ritardati 15 min</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     AREA RISERVATA CONTENT
+     ═══════════════════════════════════════════════ -->
+<div class="ar-content" id="arContent">
+
+  <div class="eurusd-bar" id="eurUsdBar">
+    <div class="label">EUR/USD</div>
+    <div class="value" id="eurUsdValue">1.0847</div>
+    <span class="var up" id="eurUsdVar">▲ +0.12%</span>
+    <div style="flex:1;"></div>
+    <div class="last-update"><span class="dot"></span> Live — aggiornato alle 14:32</div>
+    <div class="connection-status" id="connStatus"><span class="dot"></span></div>
+  </div>
+
+  <!-- Account Hub Page — Dashboard -->
+  <div class="ar-page active" id="ar-page-account">
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle" id="dashWelcome">Bentornato — panoramica dei mercati e dei tuoi servizi</p>
+
+    <!-- Riga 1: Snapshot mercati -->
+    <div class="dash-section-title">Mercati in tempo reale</div>
+    <div class="last-update" style="margin-bottom:12px;"><span class="dot"></span> Dati in tempo reale — ultimo aggiornamento 10/04/2026 14:32 CET</div>
+    <div class="dash-grid">
+      <div class="dash-card" onclick="goARPage('lme')">
+        <div class="dash-card-label">LME Rame 3M</div>
+        <div class="dash-card-value">9,412.50</div>
+        <div class="dash-sparkline" id="sparkCu"></div>
+        <div class="dash-card-sub"><span style="color:var(--positive);font-weight:700;">+1.24%</span> &nbsp; USD/t</div>
+        <div class="dash-card-bar" style="background:var(--accent);"></div>
+      </div>
+      <div class="dash-card" onclick="goARPage('lme')">
+        <div class="dash-card-label">LME Alluminio 3M</div>
+        <div class="dash-card-value">2,387.00</div>
+        <div class="dash-sparkline" id="sparkAl"></div>
+        <div class="dash-card-sub"><span style="color:var(--negative);font-weight:700;">-0.38%</span> &nbsp; USD/t</div>
+        <div class="dash-card-bar" style="background:var(--accent);"></div>
+      </div>
+      <div class="dash-card" onclick="goARPage('preziosi')">
+        <div class="dash-card-label">Oro Spot</div>
+        <div class="dash-card-value">2,342.80</div>
+        <div class="dash-sparkline" id="sparkGold"></div>
+        <div class="dash-card-sub"><span style="color:var(--positive);font-weight:700;">+0.52%</span> &nbsp; USD/oz</div>
+        <div class="dash-card-bar" style="background:#F0B90B;"></div>
+      </div>
+      <div class="dash-card" onclick="goARPage('forex')">
+        <div class="dash-card-label">EUR/USD</div>
+        <div class="dash-card-value">1.0847</div>
+        <div class="dash-sparkline" id="sparkEur"></div>
+        <div class="dash-card-sub"><span style="color:var(--positive);font-weight:700;">+0.12%</span> &nbsp; BCE Fixing</div>
+        <div class="dash-card-bar" style="background:var(--accent);"></div>
+      </div>
+      <div class="dash-card" onclick="goARPage('energia')">
+        <div class="dash-card-label">Brent Crude</div>
+        <div class="dash-card-value">82.45</div>
+        <div class="dash-sparkline" id="sparkBrent"></div>
+        <div class="dash-card-sub"><span style="color:var(--negative);font-weight:700;">-0.87%</span> &nbsp; USD/bbl</div>
+        <div class="dash-card-bar" style="background:#E67E22;"></div>
+      </div>
+      <div class="dash-card" onclick="goARPage('rottami')">
+        <div class="dash-card-label">Rottame E3</div>
+        <div class="dash-card-value">430</div>
+        <div class="dash-sparkline" id="sparkScrap"></div>
+        <div class="dash-card-sub"><span style="color:var(--positive);font-weight:700;">+0.45%</span> &nbsp; EUR/t</div>
+        <div class="dash-card-bar" style="background:#7F8C8D;"></div>
+      </div>
+    </div>
+
+    <!-- Riga 2: Accesso rapido + stato servizi -->
+    <div class="dash-row">
+      <div>
+        <div class="dash-section-title">Accesso rapido</div>
+        <div class="dash-grid" style="grid-template-columns:1fr 1fr;margin-bottom:0;">
+          <div class="dash-card" onclick="goARPage('lme')">
+            <div class="dash-card-label">Quotazioni</div>
+            <div class="dash-card-sub">LME, Preziosi, Forex, Energia, Rottami</div>
+          </div>
+          <div class="dash-card" onclick="goARPage('alerts')">
+            <div class="dash-card-label">Alert attivi</div>
+            <div class="dash-card-value" id="dashAlertCount">5</div>
+            <div class="dash-card-sub">Notifiche prezzo configurate</div>
+          </div>
+          <div class="dash-card" onclick="goARPage('news')">
+            <div class="dash-card-label">News e Report</div>
+            <div class="dash-card-sub">Ultime notizie e analisi di mercato</div>
+          </div>
+          <div class="dash-card" onclick="goARPage('preferiti')">
+            <div class="dash-card-label">Preferiti</div>
+            <div class="dash-card-sub">I tuoi strumenti salvati</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dash-section-title">Il tuo piano</div>
+        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div>
+              <div style="font-size:18px;font-weight:800;color:var(--text-primary);" id="dashLivello">Premium</div>
+              <div style="font-size:12px;color:var(--text-tertiary);" id="dashScadenza">Scadenza: 31/12/2027</div>
+            </div>
+            <div class="dash-status active" id="dashStato">Attivo</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" id="dashServizi">
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Base</div>
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Standard</div>
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Premium</div>
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Leghe</div>
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Report</div>
+            <div style="font-size:12px;padding:6px 10px;border-radius:6px;background:rgba(81,175,64,0.1);color:var(--positive);font-weight:600;">Alert</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LME Page -->
+  <div class="ar-page" id="ar-page-lme">
+    <h1 class="page-title">LME Metalli</h1>
+    <p class="page-subtitle">London Metal Exchange — Quotazioni tempo reale</p>
+    <div class="chart-container" id="lmeChart"></div>
+    <div class="chart-controls">
+      <div class="chart-periods-group">
+        <button class="chart-period active" onclick="switchChartPeriod(this)">1G</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1S</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1M</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1A</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">MAX</button>
+      </div>
+      <div class="chart-source-group">
+        <button class="chart-source active" onclick="switchLMESource('EL', this)">EL Select</button>
+        <button class="chart-source" onclick="switchLMESource('RK', this)">RK Official</button>
+        <button class="chart-source" onclick="switchLMESource('RU', this)">RU Unofficial</button>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Metallo</th>
+          <th class="right">Cash</th>
+          <th class="right">3M</th>
+          <th class="right">15M</th>
+          <th class="right">27M</th>
+          <th class="right">Var %</th>
+          <th class="right">Bid</th>
+          <th class="right">Ask</th>
+          <th class="right">Vol</th>
+        </tr>
+      </thead>
+      <tbody id="lmeTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Preziosi Page -->
+  <div class="ar-page" id="ar-page-preziosi">
+    <h1 class="page-title">Preziosi</h1>
+    <p class="page-subtitle">Oro, Argento, Platino, Palladio</p>
+    <div class="chart-container" id="preziosiChart"></div>
+    <div class="chart-controls">
+      <div class="chart-periods-group">
+        <button class="chart-period active" onclick="switchChartPeriod(this)">1G</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1S</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1M</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1A</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">MAX</button>
+      </div>
+      <div class="chart-source-group">
+        <button class="chart-source active" onclick="switchPreziosiMode('spot', this)">Spot</button>
+        <button class="chart-source" onclick="switchPreziosiMode('fixing', this)">Fixing</button>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead id="preziosiTHead">
+        <tr>
+          <th>Metallo</th>
+          <th class="right">Prezzo</th>
+          <th class="right">Var</th>
+          <th class="right">Var %</th>
+        </tr>
+      </thead>
+      <tbody id="preziosiTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Forex Page -->
+  <div class="ar-page" id="ar-page-forex">
+    <h1 class="page-title">Forex</h1>
+    <p class="page-subtitle">Tassi di cambio Fixing</p>
+    <div class="chart-container" id="forexChart"></div>
+    <div class="chart-controls">
+      <div class="chart-periods-group">
+        <button class="chart-period active" onclick="switchChartPeriod(this)">1G</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1S</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1M</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1A</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">MAX</button>
+      </div>
+      <div class="chart-source-group">
+        <button class="chart-source active" onclick="switchForexSource('BCE', this)">BCE</button>
+        <button class="chart-source" onclick="switchForexSource('BFIX', this)">BFIX</button>
+        <button class="chart-source" onclick="switchForexSource('LME', this)">LME</button>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Coppia</th>
+          <th class="right">Fixing</th>
+          <th class="right">Var</th>
+          <th class="right">Var %</th>
+          <th class="right">Bid</th>
+          <th class="right">Ask</th>
+        </tr>
+      </thead>
+      <tbody id="forexTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Energia Page -->
+  <div class="ar-page" id="ar-page-energia">
+    <h1 class="page-title">Energia & Petrolio</h1>
+    <p class="page-subtitle">Brent, WTI, PUN, Gas</p>
+    <div class="chart-container" id="energiaChart"></div>
+    <div class="chart-controls">
+      <div class="chart-periods-group">
+        <button class="chart-period active" onclick="switchChartPeriod(this)">1G</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1S</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1M</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1A</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">MAX</button>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Strumento</th>
+          <th class="right">Prezzo</th>
+          <th class="right">Var</th>
+          <th class="right">Var %</th>
+        </tr>
+      </thead>
+      <tbody id="energiaTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Rottami Page -->
+  <div class="ar-page" id="ar-page-rottami">
+    <h1 class="page-title">Rottami</h1>
+    <p class="page-subtitle">Ferrosi e Non Ferrosi</p>
+    <div class="chart-container" id="rottamiChart"></div>
+    <div class="chart-controls">
+      <div class="chart-periods-group">
+        <button class="chart-period active" onclick="switchChartPeriod(this)">1G</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1S</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1M</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">1A</button>
+        <button class="chart-period" onclick="switchChartPeriod(this)">MAX</button>
+      </div>
+      <div class="chart-source-group">
+        <button class="chart-source active" onclick="switchRottamiGroup('FER', this)">Ferrosi</button>
+        <button class="chart-source" onclick="switchRottamiGroup('NFER', this)">Non Ferrosi</button>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Descrizione</th>
+          <th class="right">Prezzo</th>
+          <th class="right">Range</th>
+          <th class="right">Unit</th>
+          <th class="right">Var %</th>
+        </tr>
+      </thead>
+      <tbody id="rottamiTableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Alerts Page -->
+  <div class="ar-page" id="ar-page-alerts">
+    <h1 class="page-title">I Tuoi Avvisami</h1>
+    <p class="page-subtitle">Monitora i prezzi target</p>
+    <div id="alertsList" style="display:flex;flex-direction:column;gap:12px;"></div>
+  </div>
+
+  <!-- Preferiti Page -->
+  <div class="ar-page" id="ar-page-preferiti">
+    <h1 class="page-title">I Tuoi Mercati Preferiti</h1>
+    <p class="page-subtitle">Personalizza la tua dashboard</p>
+    <div id="preferitiList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;"></div>
+  </div>
+
+  <!-- News Page (AR) -->
+  <div class="ar-page" id="ar-page-news">
+    <h1 class="page-title">News & Report</h1>
+    <p class="page-subtitle">Notizie e analisi dai mercati</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+      <button class="chart-period active" onclick="filterNewsAR('all', this)">Tutte</button>
+      <button class="chart-period" onclick="filterNewsAR('LME', this)">LME</button>
+      <button class="chart-period" onclick="filterNewsAR('Preziosi', this)">Preziosi</button>
+      <button class="chart-period" onclick="filterNewsAR('Energia', this)">Energia</button>
+      <button class="chart-period" onclick="filterNewsAR('Report', this)">Report</button>
+    </div>
+    <div id="arNewsList" style="display:flex;flex-direction:column;gap:12px;"></div>
+  </div>
+
+</div><!-- /ar-content -->
+
+</div><!-- /ar-container -->
+
+<!-- ═══════════════════════════════════════════════
+     PUBLIC SITE PAGES
+     ═══════════════════════════════════════════════ -->
+<main id="main">
+
+  <!-- HOME PAGE -->
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Quotazioni LME e Materie Prime <br>in Tempo Reale</h1>
+        <p>Dashboard professionale con grafici avanzati, alert personalizzati e report completo. Accesso a web, iOS e Apple Watch.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="showLogin('login')">Accedi</button>
+          <button class="btn btn-secondary" onclick="showLogin('register')">Prova Gratis</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker-section">
+      <div class="ticker-wrapper">
+        <div class="ticker-strip" id="ticker"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">MERCATI DISPONIBILI</div>
+        <h2 class="section-title">Monitora Tutti i Tuoi Mercati</h2>
+        <p class="section-desc">Accedi a quotazioni real-time di LME, preziosi, forex, petrolio, energia e rottami da un'unica piattaforma.</p>
+      </div>
+      <div class="markets-grid" id="marketsGrid"></div>
+    </section>
+
+    <section class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value">180+</div>
+        <div class="stat-label">Utenti professionali</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">1.2K+</div>
+        <div class="stat-label">Composizioni leghe</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Mercati monitorati</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">24/5</div>
+        <div class="stat-label">Disponibilità servizio</div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- PIATTAFORME PAGE -->
+  <div class="page" id="page-piattaforme">
+    <section class="section" style="padding-top:16px;">
+      <div class="section-header">
+        <h2 class="section-title">Piattaforme Disponibili</h2>
+        <p class="section-desc">Accedi alle quotazioni da qualsiasi dispositivo con sincronizzazione seamless.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;max-width:1200px;margin:0 auto;">
+        <div class="pricing-card">
+          <div style="font-size:48px;margin-bottom:16px;">🌐</div>
+          <h3 style="font-size:18px;margin-bottom:8px;">Dashboard Web</h3>
+          <p style="color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Accesso desktop completo con grafici avanzati, tabelle dati e alert real-time.</p>
+          <button class="btn btn-primary" style="width:100%;" onclick="showLogin('login')">Accedi al Web</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-size:48px;margin-bottom:16px;">📱</div>
+          <h3 style="font-size:18px;margin-bottom:8px;">App iOS</h3>
+          <p style="color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">App nativa con Live Activities, notifiche push istantanee e sincronizzazione iCloud.</p>
+          <button class="btn btn-secondary" style="width:100%;" onclick="showToast('App iOS in arrivo su App Store', 'info')">Scopri App</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-size:48px;margin-bottom:16px;">⌚</div>
+          <h3 style="font-size:18px;margin-bottom:8px;">Apple Watch</h3>
+          <p style="color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Monitoraggio su polso con complications, alert e grafici sparkline.</p>
+          <button class="btn btn-secondary" style="width:100%;" onclick="showToast('Apple Watch — richiede watchOS 9.0+', 'info')">Scopri Watch</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-size:48px;margin-bottom:16px;">📊</div>
+          <h3 style="font-size:18px;margin-bottom:8px;">Plugin Excel</h3>
+          <p style="color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Add-in per Microsoft Excel: importa quotazioni LME, preziosi e forex direttamente nei tuoi fogli di calcolo con aggiornamento automatico.</p>
+          <button class="btn btn-secondary" style="width:100%;" onclick="showToast('Plugin Excel — disponibile per Microsoft 365', 'info')">Scopri Plugin</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-size:48px;margin-bottom:16px;">🔗</div>
+          <h3 style="font-size:18px;margin-bottom:8px;">API REST</h3>
+          <p style="color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Integra i dati FTMercati nei tuoi sistemi. Endpoint JSON per quotazioni, storici, alert e report con autenticazione Bearer token.</p>
+          <button class="btn btn-secondary" style="width:100%;" onclick="showToast('API docs disponibili per clienti Professional e Enterprise', 'info')">Documentazione</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTATTI PAGE -->
+  <!-- ROTTAMI PAGE -->
+  <div class="page" id="page-rottami">
+    <section class="section" style="padding-top:16px;">
+      <div class="section-header">
+        <div class="section-label">MERCATO ROTTAMI</div>
+        <h2 class="section-title">Rottami Ferrosi e Non Ferrosi</h2>
+        <p class="section-desc">Quotazioni aggiornate dei principali rottami metallici italiani ed europei. Classificazione ISRI e CAEF.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto;">
+        <div class="pricing-card">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;">Ferrosi</h3>
+          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">E1 (demolizione pesante), E3 (torni e trucioli), E8 (lamierino), E40 (shredded). Quotazioni in EUR/tonnellata aggiornate settimanalmente.</p>
+          <button class="btn btn-primary" style="width:100%;" onclick="showLogin('login')">Vedi Quotazioni</button>
+        </div>
+        <div class="pricing-card">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;">Non Ferrosi</h3>
+          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">Rame (Berry, Birch), alluminio (Taint/Tabor, Tense), zinco, ottone, bronzo. Quotazioni in EUR/kg con range min-max.</p>
+          <button class="btn btn-primary" style="width:100%;" onclick="showLogin('login')">Vedi Quotazioni</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LEGHE PAGE -->
+  <div class="page" id="page-leghe">
+    <section class="section" style="padding-top:16px;">
+      <div class="section-header">
+        <div class="section-label">DATABASE LEGHE</div>
+        <h2 class="section-title">Database Leghe Metalliche</h2>
+        <p class="section-desc">1.240+ composizioni con ricerca avanzata per norma, applicazione e composizione chimica.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;">
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);margin-bottom:8px;">1.240+</div>
+          <div style="font-size:14px;color:var(--text-secondary);">Composizioni catalogate</div>
+        </div>
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);margin-bottom:8px;">8</div>
+          <div style="font-size:14px;color:var(--text-secondary);">Norme internazionali (ASTM, EN, ISO, UNI, DIN, JIS, GB, GOST)</div>
+        </div>
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);margin-bottom:8px;">Cu Al Zn</div>
+          <div style="font-size:14px;color:var(--text-secondary);">Rame, alluminio, zinco, nichel, stagno e altre basi</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <button class="btn btn-primary" onclick="showLogin('login')">Accedi al Database Leghe</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- NEWS PAGE -->
+  <div class="page" id="page-news">
+    <section class="section" style="padding-top:16px;">
+      <div class="section-header">
+        <h2 class="section-title">Notizie di Mercato</h2>
+        <p class="section-desc">Le ultime notizie dai mercati delle materie prime, metalli preziosi, energia e forex.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px;" id="newsFilterPublic">
+        <button class="chart-period active" onclick="filterNewsPublic('all', this)">Tutte</button>
+        <button class="chart-period" onclick="filterNewsPublic('LME', this)">LME</button>
+        <button class="chart-period" onclick="filterNewsPublic('Preziosi', this)">Preziosi</button>
+        <button class="chart-period" onclick="filterNewsPublic('Energia', this)">Energia</button>
+        <button class="chart-period" onclick="filterNewsPublic('Forex', this)">Forex</button>
+        <button class="chart-period" onclick="filterNewsPublic('Report', this)">Report</button>
+      </div>
+      <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px;" id="newsList"></div>
+    </section>
+  </div>
+
+  <!-- CONTATTI PAGE -->
+  <div class="page" id="page-contatti">
+    <section class="section" style="padding-top:16px;">
+      <div class="section-header">
+        <h2 class="section-title">Contattaci</h2>
+        <p class="section-desc">Siamo a tua disposizione per qualsiasi informazione sui nostri servizi.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">✉</div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:8px;">Email</h3>
+          <a href="mailto:info@ftmercati.com" style="color:var(--accent);text-decoration:none;font-size:14px;">info@ftmercati.com</a>
+        </div>
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">☎</div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:8px;">Telefono</h3>
+          <a href="tel:+390289452666" style="color:var(--accent);text-decoration:none;font-size:14px;">+39 02 89452666</a>
+        </div>
+        <div class="pricing-card" style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">⚙</div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:8px;">Supporto Tecnico</h3>
+          <a href="mailto:support@ftmercati.com" style="color:var(--accent);text-decoration:none;font-size:14px;">support@ftmercati.com</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;font-size:14px;color:var(--text-secondary);">
+        <p style="font-weight:700;margin-bottom:4px;">FT Support S.r.l.</p>
+        <p>Via per San Bovio 3, Segrate (MI), 20054</p>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="footer" id="mainFooter">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3 style="font-size:16px;font-weight:700;">FTMercati</h3>
+      <p>Piattaforma professionale per il monitoraggio dei mercati delle materie prime. Dati real-time da LME, BCE, ICE, SHFE.</p>
+    </div>
+    <div>
+      <h4>Prodotto</h4>
+      <a href="#" onclick="goPublicPage('piattaforme')">Piattaforme</a>
+      <a href="#" onclick="goPublicPage('leghe')">Leghe</a>
+    </div>
+    <div>
+      <h4>Risorse</h4>
+      <a href="#" onclick="goPublicPage('news')">News</a>
+      <a href="#">Blog</a>
+      <a href="#">Documentazione</a>
+    </div>
+    <div>
+      <h4>Supporto</h4>
+      <a href="#" onclick="goPublicPage('contatti')">Contatti</a>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 FTMercati — FT Support S.r.l. Tutti i diritti riservati.</span>
+    <span>Dati forniti da LME, BCE, ICE, SHFE</span>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     LOGIN OVERLAY
+     ═══════════════════════════════════════════════ -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <button class="login-close" onclick="hideLogin()">✕</button>
+    <div id="loginForm">
+      <div class="login-tabs">
+        <button class="login-tab active" id="tabLogin" onclick="switchLoginTab('login')">Accedi</button>
+        <button class="login-tab" id="tabRegister" onclick="switchLoginTab('register')">Registrati</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input class="form-input" id="loginUsername" type="text" placeholder="username" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div style="position:relative;">
+          <input class="form-input" id="loginPassword" type="password" placeholder="••••••••" style="padding-right:44px;">
+          <button type="button" id="togglePwBtn" onclick="togglePasswordVisibility()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:13px;color:var(--text-tertiary);padding:4px 8px;line-height:1;font-family:var(--font);font-weight:600;letter-spacing:.3px;" title="Mostra password">MOSTRA</button>
+        </div>
+      </div>
+      <div id="registerFields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Nome</label>
+          <input class="form-input" id="registerName" type="text" placeholder="Nome Cognome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Azienda</label>
+          <input class="form-input" id="registerCompany" type="text" placeholder="Azienda">
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;" id="loginRemember">
+        <input type="checkbox" id="rememberMe" style="width:16px;height:16px;cursor:pointer;">
+        <label for="rememberMe" style="font-size:13px;color:var(--text-secondary);cursor:pointer;">Ricordami</label>
+      </div>
+      <button class="btn btn-primary login-submit" id="loginSubmitBtn" onclick="handleLogin()">Accedi</button>
+      <div style="display:flex;align-items:center;gap:12px;margin:14px 0 10px;">
+        <div style="flex:1;height:1px;background:var(--border);"></div>
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">oppure</span>
+        <div style="flex:1;height:1px;background:var(--border);"></div>
+      </div>
+      <button class="btn btn-secondary" style="width:100%;border:2px dashed var(--accent);color:var(--accent);font-weight:700;" onclick="demoLogin()">Esplora in modalita Demo</button>
+      <div class="login-footer" id="loginFooter">
+        Non hai un account? <a onclick="switchLoginTab('register')">Registrati</a>
+      </div>
+    </div>
+    <div id="loginSuccess" style="display:none;padding:20px 0;">
+      <div class="login-success-icon" style="width:64px;height:64px;border-radius:50%;background:var(--positive-bg);color:var(--positive);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;">✓</div>
+      <h3 id="successTitle" style="text-align:center;margin-bottom:8px;"></h3>
+      <p id="successMsg" style="text-align:center;color:var(--text-secondary);font-size:14px;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Display Name Editor -->
+<div class="search-overlay" id="nameEditorOverlay" onclick="if(event.target===this)closeNameEditor()">
+  <div class="search-box" style="padding:24px;">
+    <h3 style="margin:0 0 8px;font-size:16px;font-weight:700;color:var(--text-primary);">Nome visualizzato</h3>
+    <p style="margin:0 0 16px;font-size:13px;color:var(--text-secondary);">Questo nome viene mostrato nella dashboard e nel messaggio di benvenuto.</p>
+    <input class="form-input" id="displayNameInput" type="text" placeholder="Es. Tommaso" style="margin-bottom:16px;">
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button class="btn btn-secondary" onclick="closeNameEditor()" style="padding:8px 20px;">Annulla</button>
+      <button class="btn btn-primary" onclick="saveDisplayName()" style="padding:8px 20px;">Salva</button>
+    </div>
+  </div>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-box">
+    <input class="search-input" id="searchInput" type="text" placeholder="Cerca mercati, strumenti, news..." autocomplete="off" oninput="handleSearch(this.value)">
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-hint">
+      <span>Naviga con <kbd>↑</kbd> <kbd>↓</kbd> e premi <kbd>Enter</kbd></span>
+      <span><kbd>Esc</kbd> per chiudere</span>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
